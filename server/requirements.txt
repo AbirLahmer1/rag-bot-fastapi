@@ -10,3 +10,6 @@ python-dotenv
 python-multipart
 aiofiles
 tiktoken
+langchain
+langchain-text-splitters
+langchain-classic

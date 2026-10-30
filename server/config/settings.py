@@ -1,6 +1,6 @@
+
 import os
 from dotenv import load_dotenv
-
 
 load_dotenv()
 
@@ -11,17 +11,30 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 TEMPFILE_UPLOAD_DIRECTORY = "./temp/uploaded_files"
 
 MODEL_OPTIONS = {
-  "groq": {
-    "playground": "https://console.groq.com",
-    "models": ["llama-3.1-8b-instant", "llama3-70b-8192"]
-  },
-  "gemini": {
-    "playground": "https://ai.google.dev",
-    "models": ["gemini-2.0-flash", "gemini-2.5-flash"]
-  }
+    "groq": {
+        "playground": "https://console.groq.com",
+        "models": [
+            "openai/gpt-oss-20b",
+        ],
+    },
+    "gemini": {
+        "playground": "https://ai.google.dev",
+        "models": [
+            "gemini-2.0-flash",
+            "gemini-2.5-flash",
+        ],
+    },
+    "ollama": {
+        "playground": "http://localhost:11434",
+        "models": [
+            "qwen2.5:7b",
+            "qwen2.5-coder:3b",
+            "qwen2.5:1.5b",
+        ],
+    },
 }
 
 VECTORSTORE_DIRECTORY = {
-  key.lower(): f"./data/{key.lower()}_vector_store"
-  for key in MODEL_OPTIONS.keys()
+    key.lower(): f"./data/{key.lower()}_vector_store"
+    for key in MODEL_OPTIONS.keys()
 }
